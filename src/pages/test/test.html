@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>登陆界面</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<h1>Tour of Heroes ({{mode}})</h1>
+<h3>Heroes:</h3>
+<ul>
+  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
+<label>New hero name: <input #newHeroName /></label>
+<button (click)="addHero(newHeroName.value); newHeroName.value=''">Add Hero</button>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</ion-content>

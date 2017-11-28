@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span style="color:#939393">会诊列表</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-item style="width:100%;display:inline-block">
+      <ion-label floating>会诊状态</ion-label>
+          <ion-select [(ngModel)]="consult_state">
+            <ion-option>未会诊</ion-option>
+            <ion-option>在会诊</ion-option>
+            <ion-option>已会诊</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item style="width:100%;float:left">
+      <ion-label floating>会诊开始时间</ion-label>
+          <!--<span item-left  style="min-height: 25px;"></span>-->
+          <ion-datetime pickerFormat="YYYY MM DD" displayFormat="YYYY-MM-DD" [(ngModel)]="request_date_start" max="2020-10-31" min="2000-01-01" cancelText="取消" doneText="确认"></ion-datetime>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item style="width:100%;float:left">
+          <ion-label floating>会诊结束时间</ion-label>
+          <!--<span item-left  style="min-height: 25px;"></span>-->
+          <ion-datetime pickerFormat="YYYY MM DD" displayFormat="YYYY-MM-DD" [(ngModel)]="request_date_end" max="2020-10-31" min="2000-01-01" cancelText="取消" doneText="确认"></ion-datetime>
+        </ion-item>
+
+    </ion-row>
+	<ion-row>
+      <ion-col style="width:50%">
+        <button ion-button full (click)="clear()">清除</button>
+      </ion-col>
+	  <ion-col style="width:50%">
+        <button ion-button full (click)="search()">搜索</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+      <ion-card *ngFor="let patient of patient_list" (click)="view(patient)" (onload)= "init(patient)">
+        <ion-card-header>
+          病人信息
+        </ion-card-header>
+
+        <ion-list>
+          <ion-row>
+          <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="briefcase" item-start></ion-icon>
+            请求医院：{{patient.source_hospital_name}}
+          </button>
+          </ion-col>
+            <ion-col width-50>
+              <button ion-item>
+                <ion-icon name="briefcase" item-start></ion-icon>
+                会诊医院：{{patient.dest_hospital_name}}
+              </button>
+            </ion-col>
+            </ion-row>
+
+          <ion-row>
+            <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="body" item-start></ion-icon>
+            病人性别：{{patient.pat_sex}}
+          </button>
+            </ion-col>
+            <ion-col width-50>
+              <button ion-item>
+                <ion-icon name="contacts" item-start></ion-icon>
+                病人生日：{{patient.pat_birth_str}}
+              </button>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col width-50>
+              <button ion-item>
+                <ion-icon name="ribbon" item-start></ion-icon>
+                优先级：{{patient.priority_str}}
+          </button>
+        </ion-col>
+            <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="star" item-start></ion-icon>
+            图像状态：{{patient.dicom_ready}}
+          </button>
+            </ion-col>
+          </ion-row>
+
+          <button ion-item>
+            <ion-icon name="checkbox" item-start></ion-icon>
+            会诊状态：{{patient.consult_state}}
+          </button>
+        </ion-list>
+      </ion-card>
+
+
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

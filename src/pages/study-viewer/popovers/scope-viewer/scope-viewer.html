@@ -1,0 +1,17 @@
+<ion-list class="popover-page">
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_scope_study.png" (click)="imageViewer.doZoom();studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_scope_series.png" (click)="imageViewer.doROI();studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_scope_image.png"  (click)="imageViewer.doWL();studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+</ion-list>

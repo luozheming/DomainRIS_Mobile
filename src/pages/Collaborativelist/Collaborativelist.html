@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+		<span style="color:#939393">协同列表</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-item style="width:100%;display:inline-block">
+      <ion-label floating>协同状态</ion-label>
+          <ion-select [(ngModel)]="consult_state">
+            <ion-option>待写</ion-option>
+            <ion-option>待审</ion-option>
+            <ion-option>终审</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item style="width:100%;float:left">
+      <ion-label floating>协同开始时间</ion-label>
+          <!--<span item-left  style="min-height: 25px;"></span>-->
+          <ion-datetime pickerFormat="YYYY MM DD" displayFormat="YYYY-MM-DD" [(ngModel)]="request_date_start" max="2020-10-31" min="2000-01-01" cancelText="取消" doneText="确认"></ion-datetime>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item style="width:100%;float:left">
+          <ion-label floating>协同结束时间</ion-label>
+          <!--<span item-left  style="min-height: 25px;"></span>-->
+          <ion-datetime pickerFormat="YYYY MM DD" displayFormat="YYYY-MM-DD" [(ngModel)]="request_date_end" max="2020-10-31" min="2000-01-01" cancelText="取消" doneText="确认"></ion-datetime>
+        </ion-item>
+
+    </ion-row>
+	<ion-row>
+      <ion-col style="width:50%">
+        <button ion-button full (click)="clear()">清除</button>
+      </ion-col>
+	  <ion-col style="width:50%">
+        <button ion-button full (click)="search()">搜索</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+      <ion-card *ngFor="let patient of patient_list" (click)="view(patient)">
+        <!--<ion-card-header>-->
+          <!--病人信息-->
+        <!--</ion-card-header>-->
+
+        <ion-list>
+          <!--图像传输状态不同显示不同内容 -->
+          <div *ngIf="patient.dicom_ready=='传输中'">
+          <ion-row>
+          <ion-col>
+          <button ion-item>
+            <ion-icon name="briefcase" item-start></ion-icon>
+            请求医院：{{patient.source_hospital_name}}
+          </button>
+          </ion-col>
+            </ion-row>
+            </div>
+
+          <div *ngIf="patient.dicom_ready=='已到达数据中心'">
+            <ion-row>
+              <ion-col>
+                <button ion-item>
+                  <ion-icon name="briefcase" item-start color="secondary"></ion-icon>
+                  请求医院：{{patient.source_hospital_name}}
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <div *ngIf="patient.dicom_ready=='已到达诊断中心'">
+            <ion-row>
+              <ion-col>
+                <button ion-item>
+                  <ion-icon name="briefcase" item-start color="secondary"></ion-icon>
+                  请求医院：{{patient.source_hospital_name}}
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <!--优先级为普通状态下显示内容 -->
+          <div  *ngIf="patient.priority_str=='普通'">
+          <ion-row>
+            <ion-col>
+          <button ion-item>
+                <ion-icon name="body" item-start></ion-icon>
+            病人信息：{{patient.pat_sex}}            {{patient.pat_birth_str}}
+          </button>
+            </ion-col>
+          </ion-row>
+          </div>
+
+          <!--优先级为加急状态下显示内容 -->
+          <div  *ngIf="patient.priority_str=='加急'">
+            <ion-row>
+              <ion-col>
+                <button ion-item>
+                  <ion-icon name="body" item-start color="danger"></ion-icon>
+                  病人信息：{{patient.pat_sex}}            {{patient.pat_birth_str}}
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <ion-row>
+            <ion-col>
+              <button ion-item>
+                <ion-icon name="checkbox" item-start></ion-icon>
+                协同描述：{{patient.description}}
+              </button>
+        </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-card>
+
+
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+

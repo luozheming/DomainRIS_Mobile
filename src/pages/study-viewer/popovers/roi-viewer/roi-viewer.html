@@ -1,0 +1,18 @@
+<ion-list class="popover-page">
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_tabbar_zoom_off.png" (click)="imageViewer.doZoom();studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_tabbar_roi_off.png" (click)="imageViewer.doROI();studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_tabbar_wl_off.png"  (click)="imageViewer.doWL();studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_tabbar_reset_off.png"  (click)="imageViewer.reset();studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+</ion-list>

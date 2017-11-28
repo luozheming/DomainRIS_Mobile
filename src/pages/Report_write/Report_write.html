@@ -1,0 +1,111 @@
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      病人信息
+    </ion-card-header>
+
+    <ion-list>
+      <ion-row>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="briefcase" item-start></ion-icon>
+            请求医院：{{patient.source_hospital_name}}
+          </button>
+        </ion-col>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="briefcase" item-start></ion-icon>
+            {{patient.request_type_chn}}医院：{{patient.dest_hospital_name}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="body" item-start></ion-icon>
+            病人性别：{{patient.pat_sex}}
+          </button>
+        </ion-col>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="contacts" item-start></ion-icon>
+            病人生日：{{patient.pat_birth_str}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="ribbon" item-start></ion-icon>
+            优先级：{{patient.priority_str}}
+          </button>
+        </ion-col>
+        <ion-col width-50>
+          <button ion-item>
+            <ion-icon name="star" item-start></ion-icon>
+            图像状态：{{patient.dicom_ready}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <button ion-item>
+        <ion-icon name="checkbox" item-start></ion-icon>
+        {{patient.request_type_chn}}状态：{{patient.consult_state}}
+      </button>
+    </ion-list>
+  </ion-card>
+
+    <label>影像学表现 </label>
+  <ion-textarea style="border: 5px solid #8c8c8c;"  rows="5" cols="20" placeholder="报告内容" [(ngModel)]="report.content"></ion-textarea>
+    <label>影像学诊断</label>
+    <ion-textarea style="border: 5px solid #8c8c8c;"  rows="5" cols="20" placeholder="报告内容" [(ngModel)]="report.conclusion"></ion-textarea>
+	
+	<ion-card *ngFor="let study of patient.studylist" (click)="openimage(study)">
+        <ion-card-header>
+          图像信息
+        </ion-card-header>
+
+        <ion-list>
+          <ion-row>
+          <ion-col width-50>
+          <button ion-item>
+            检查日期：{{study.study_date_str}}
+          </button>
+          </ion-col>
+            <ion-col width-50>
+              <button ion-item>
+                检查设备：{{study.modality_concat}}
+              </button>
+            </ion-col>
+            </ion-row>
+
+
+          <ion-row>
+            <ion-col width-50>
+              <button ion-item>
+                检查部位：{{study.study_description}}
+          </button>
+        </ion-col>
+            <ion-col width-50>
+          <button ion-item>
+            系列数：{{study.number_of_series}}
+          </button>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-card>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button full (click)="Submit()">提交</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button full (click)="Return()">返回</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span style="color:#939393">登陆界面</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid style="width: 250px">
+    <ion-row>
+      <ion-col>
+        <label>Email or Username:</label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <input name="username" [(ngModel)]="userinfo.user_id" type="text" id="user-name-field" placeholder="Your email or username" required>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <label>Password:</label>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+        <input name="password" [(ngModel)]="userinfo.user_password" type="password" id="password-field" placeholder="Your password" required>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col>
+        <button class="loginButton" ion-button (click)="login(userinfo.user_id,userinfo.user_password, false)">Login</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+
+<ion-footer id="footer">
+  <a>SITP</a> |
+  <a>上海技术物理研究所</a>
+</ion-footer>

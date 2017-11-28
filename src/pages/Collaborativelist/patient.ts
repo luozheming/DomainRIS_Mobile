@@ -1,0 +1,25 @@
+export  class Patient{
+  consult_state:string;
+  dicom_ready:string;
+  pat_sex:string;
+  priority_str:string;
+  dest_hospital_name:string;
+  pat_birth_str:string;
+  source_hospital_name:string;
+  reportlist:any;
+  dest_hospital_id:any;
+  description:string;
+  pat_id:string;
+  pat_name:string;
+  pat_age:string;
+  reqou_name:string;
+  clinical_symptoms:string;
+  clinical_diagnosis:string;
+  bodypart:string;
+  image_symptoms:string;
+  image_diagnosis:string;
+  reqdoc_name:string;
+  request_no:string;
+  request_type:string;
+  request_type_chn:string;
+}

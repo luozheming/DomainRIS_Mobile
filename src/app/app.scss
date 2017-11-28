@@ -1,0 +1,213 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+//change by ZK
+.item-md {
+  padding-left: 0px;
+}
+.label-md {
+  margin: 0;
+}
+
+.button-md{
+  text-transform: none;
+}
+
+.navbar {
+  background: linear-gradient(#4c4c4c,#252424);
+  border-bottom: 1px solid #000;
+  width:100%;
+  height: 56px;
+}
+.institution {
+  margin-top: 17px;
+  height:20px;
+  width:auto;
+  color:grey;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+.institution .one-title {
+  display: block;
+  position: absolute;
+  font:bold 22px/24px Arial;
+  color:grey;
+  float:left;
+  top:16px;
+  left:16px;
+}
+.institution .title {
+  display: block;
+  position: absolute;
+  font:bold 22px/8px Arial;
+  color:grey;
+  float:left;
+}
+.institution .subtitle {
+  float:left;
+  font:12px/26px Arial;
+  color:#939393;
+  padding-top:13px;
+}
+
+ion-header {
+  background-color: grey;
+}
+
+ion-avatar {
+  padding-left: 10px;
+}
+
+.leftHeaderIcon {
+  font-size: 2.1em;
+  padding-top: 10px;
+  color:#939393;
+  float: left;
+  padding-left: 20px;
+}
+.newCaseIcon {
+   font-size: 2.1em;
+   padding-top: 10px;
+   color:#939393;
+   float: right;
+   padding-right: 20px;
+ }
+.toolbar-background-md {
+  background: linear-gradient(#4c4c4c,#252424);
+}
+.back-button {
+  color : #939393;
+}
+.back-button-md {
+  margin: 0px;
+}
+
+
+// the following for ImageViewer, any change should be added here.
+.centeredImg {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); /* Safari and Chrome */
+  -moz-transform: translate(-50%, -50%); /* Firefox */
+  -ms-transform: translate(-50%, -50%); /* IE 9 */
+  -o-transform: translate(-50%, -50%); /* Opera */
+}
+
+.topLeftOverlayDiv {
+  position: absolute;
+  color: black;
+  top: 1px;
+  left: 1px;
+  font-size: smaller;
+}
+.topLeftOverlayBackgroundDiv {
+  position: absolute;
+  color: white;
+  top: 2px;
+  left: 2px;
+  font-size: smaller;
+}
+.topRightOverlayDiv {
+  position: absolute;
+  color: black;
+  top: 1px;
+  right: 1px;
+  font-size: smaller;
+}
+.topRightOverlayBackgroundDiv {
+  position: absolute;
+  color: white;
+  top: 2px;
+  right: 0px;
+  font-size: smaller;
+}
+.bottomLeftOverlayDiv {
+  position: absolute;
+  color: black;
+  bottom: 1px;
+  left: 1px;
+  font-size: smaller;
+}
+.bottomLeftOverlayBackgroundDiv {
+  position: absolute;
+  color: white;
+  bottom: 0px;
+  left: 2px;
+  font-size: smaller;
+}
+.bottomRightOverlayDiv {
+  position: absolute;
+  color: black;
+  bottom: 1px;
+  right: 1px;
+  font-size: smaller;
+}
+.bottomRightOverlayBackgroundDiv {
+  position: absolute;
+  color: white;
+  bottom: 0px;
+  right: 0px;
+  font-size: smaller;
+}
+
+.popover-md .popover-content {
+  width:130px;
+  background: linear-gradient(grey, black 15px);
+  border-radius: 2px;
+}
+
+.action-sheet-wrapper{
+  max-width: none;
+}
+.action-sheet-md .action-sheet-container{
+  width: 100%;
+}
+.action-sheet-md .action-sheet-group .button-inner {
+  justify-content: center;
+}
+.action-sheet-button{
+  width: 25%;
+}
+.action-sheet-md .action-sheet-icon{
+  font-size: 5.4rem;
+}
+.row-dots {
+  text-align: center;
+}
+
+.navbar ion-col{
+  padding: 0px;
+}
+
+.segment-md .segment-button.segment-activated{
+  border-color: white;
+}
+.segment-md .segment-button {
+  color: white;
+}
+.white-label{
+  color: white;
+  font-weight: bold;
+}
+
+.tileView {
+	background: black;
+}

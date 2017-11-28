@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+		<span style="color:#939393">设置</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-item style="width:100%;display:inline-block">
+			<ion-label floating>DomainRIS URL:</ion-label>
+				<ion-input [(ngModel)]='config.domainrisurl'></ion-input>
+			</ion-item>
+		</ion-row>
+		<ion-row>
+			<ion-item style="width:100%;display:inline-block">
+			<ion-label floating>AxVS URL:</ion-label>
+				<ion-input [(ngModel)]='config.axvsurl'></ion-input>
+			</ion-item>
+		</ion-row>
+		
+		<ion-row>
+		  <ion-col>
+			<button ion-button full (click)="save()">保存</button>
+		  </ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+

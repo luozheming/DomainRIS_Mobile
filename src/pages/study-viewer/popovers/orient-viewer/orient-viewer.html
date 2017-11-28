@@ -1,0 +1,18 @@
+<ion-list class="popover-page">
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_orient_flip_horiz_off.png" (click)="imageViewer.rotate(90);studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_orient_flip_vert_off.png" (click)="imageViewer.rotate(180);studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_orient_rotate_left_off.png"  (click)="imageViewer.rotate(270);studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_orient_rotate_right_off.png" (click)="imageViewer.rotate(-90);studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+</ion-list>

@@ -1,0 +1,32 @@
+<ion-list class="popover-page">
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_layout_1_1_off.png" (click)="imageViewer.reLayout(1, 1);studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_layout_2_1_off.png" (click)="imageViewer.reLayout(1, 2);studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-dots">
+    <ion-col>
+      <img src="assets/img/icon_layout_1_2_off.png"  (click)="imageViewer.reLayout(2, 1);studyViewer.dismiss();"/>
+    </ion-col>
+    <ion-col>
+      <img src="assets/img/icon_layout_2_2_off.png" (click)="imageViewer.reLayout(2, 2);studyViewer.dismiss();"/>
+    </ion-col>
+  </ion-row>
+  <br/>
+
+
+  <ion-card *ngFor="let series of seriesList"
+            (click)="imageViewer.selectSeries2Show(series.study,series.series);studyViewer.dismiss();">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{series.thumbnail}}">
+      </ion-avatar>
+      <p>{{series.seriesDescription}}</p>
+      <p>{{series.modality}}</p>
+    </ion-item>
+  </ion-card>
+</ion-list>
